@@ -1,6 +1,6 @@
-import type { AgentTool } from "@mariozechner/pi-agent-core";
-import { fauxAssistantMessage, fauxToolCall } from "@mariozechner/pi-ai";
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { AgentTool } from "@mariozechner/swarmz-agent-core";
+import { fauxAssistantMessage, fauxToolCall } from "@mariozechner/swarmz-ai";
+import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
 import { Type } from "typebox";
 import { afterEach, describe, expect, it } from "vitest";
 import { createHarness, getAssistantTexts, getMessageText, getUserTexts, type Harness } from "./harness.js";
@@ -10,7 +10,7 @@ async function createWaitingHarness(
 		tools?: AgentTool[];
 		extensionFactories?: Harness["session"]["extensionRunner"] extends never
 			? never
-			: Array<(pi: ExtensionAPI) => void>;
+			: Array<(swarmz: ExtensionAPI) => void>;
 	} = {},
 ): Promise<{
 	harness: Harness;
@@ -70,8 +70,8 @@ describe("AgentSession queue characterization", () => {
 		const commandRuns: string[] = [];
 		const harness = await createHarness({
 			extensionFactories: [
-				(pi) => {
-					pi.registerCommand("testcmd", {
+				(swarmz) => {
+					swarmz.registerCommand("testcmd", {
 						description: "Test command",
 						handler: async (args) => {
 							commandRuns.push(args);
@@ -93,8 +93,8 @@ describe("AgentSession queue characterization", () => {
 		let extensionApi: ExtensionAPI | undefined;
 		const waiting = await createWaitingHarness({
 			extensionFactories: [
-				(pi) => {
-					extensionApi = pi;
+				(swarmz) => {
+					extensionApi = swarmz;
 				},
 			],
 		});
@@ -387,8 +387,8 @@ describe("AgentSession queue characterization", () => {
 	it("throws when queueing an extension command with steer", async () => {
 		const harness = await createHarness({
 			extensionFactories: [
-				(pi) => {
-					pi.registerCommand("testcmd", {
+				(swarmz) => {
+					swarmz.registerCommand("testcmd", {
 						description: "Test command",
 						handler: async () => {},
 					});
@@ -405,8 +405,8 @@ describe("AgentSession queue characterization", () => {
 	it("throws when queueing an extension command with followUp", async () => {
 		const harness = await createHarness({
 			extensionFactories: [
-				(pi) => {
-					pi.registerCommand("testcmd", {
+				(swarmz) => {
+					swarmz.registerCommand("testcmd", {
 						description: "Test command",
 						handler: async () => {},
 					});

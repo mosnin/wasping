@@ -1,7 +1,7 @@
 import { Alert } from "@mariozechner/mini-lit/dist/Alert.js";
-import type { Message } from "@mariozechner/pi-ai";
-import type { AgentMessage, MessageRenderer } from "@mariozechner/pi-web-ui";
-import { defaultConvertToLlm, registerMessageRenderer } from "@mariozechner/pi-web-ui";
+import type { Message } from "@mariozechner/swarmz-ai";
+import type { AgentMessage, MessageRenderer } from "@mariozechner/swarmz-web-ui";
+import { defaultConvertToLlm, registerMessageRenderer } from "@mariozechner/swarmz-web-ui";
 import { html } from "lit";
 
 // ============================================================================
@@ -17,8 +17,8 @@ export interface SystemNotificationMessage {
 }
 
 // Extend CustomAgentMessages interface via declaration merging
-// This must target pi-agent-core where CustomAgentMessages is defined
-declare module "@mariozechner/pi-agent-core" {
+// This must target swarmz-agent-core where CustomAgentMessages is defined
+declare module "@mariozechner/swarmz-agent-core" {
 	interface CustomAgentMessages {
 		"system-notification": SystemNotificationMessage;
 	}

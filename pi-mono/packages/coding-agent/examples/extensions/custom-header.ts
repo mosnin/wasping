@@ -2,14 +2,14 @@
  * Custom Header Extension
  *
  * Demonstrates ctx.ui.setHeader() for replacing the built-in header
- * (logo + keybinding hints) with a custom component showing the pi mascot.
+ * (logo + keybinding hints) with a custom component showing the swarmz mascot.
  */
 
-import type { ExtensionAPI, Theme } from "@mariozechner/pi-coding-agent";
-import { VERSION } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI, Theme } from "@mariozechner/swarmz-coding-agent";
+import { VERSION } from "@mariozechner/swarmz-coding-agent";
 
-// --- PI MASCOT ---
-// Based on pi_mascot.ts - the pi agent character
+// --- Swarmz MASCOT ---
+// Based on pi_mascot.ts - the swarmz agent character
 function getPiMascot(theme: Theme): string[] {
 	// --- COLORS ---
 	// 3b1b Blue: R=80, G=180, B=230
@@ -44,9 +44,9 @@ function getPiMascot(theme: Theme): string[] {
 	return ["", lineEyes, lineBar, lineLeg, lineLeg, lineLeg, lineLeg, ""];
 }
 
-export default function (pi: ExtensionAPI) {
+export default function (swarmz: ExtensionAPI) {
 	// Set custom header immediately on load (if UI is available)
-	pi.on("session_start", async (_event, ctx) => {
+	swarmz.on("session_start", async (_event, ctx) => {
 		if (ctx.hasUI) {
 			ctx.ui.setHeader((_tui, theme) => {
 				return {
@@ -63,7 +63,7 @@ export default function (pi: ExtensionAPI) {
 	});
 
 	// Command to restore built-in header
-	pi.registerCommand("builtin-header", {
+	swarmz.registerCommand("builtin-header", {
 		description: "Restore built-in header with keybinding hints",
 		handler: async (_args, ctx) => {
 			ctx.ui.setHeader(undefined);

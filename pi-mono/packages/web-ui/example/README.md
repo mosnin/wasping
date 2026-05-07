@@ -1,6 +1,6 @@
-# Pi Web UI - Example
+# Swarmz Web UI - Example
 
-This is a minimal example showing how to use `@mariozechner/pi-web-ui` in a web application.
+This is a minimal example showing how to use `@mariozechner/swarmz-web-ui` in a web application.
 
 ## Setup
 
@@ -56,6 +56,6 @@ example/
 
 ## Learn More
 
-- [Pi Web UI Documentation](../README.md)
-- [Pi AI Documentation](../../ai/README.md)
+- [Swarmz Web UI Documentation](../README.md)
+- [Swarmz AI Documentation](../../ai/README.md)
 - [Mini Lit Documentation](https://github.com/badlogic/mini-lit)

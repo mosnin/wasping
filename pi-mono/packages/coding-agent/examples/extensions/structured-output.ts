@@ -5,8 +5,8 @@
  * without paying for an extra follow-up LLM turn.
  */
 
-import { defineTool, type ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { Text } from "@mariozechner/pi-tui";
+import { defineTool, type ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import { Text } from "@mariozechner/swarmz-tui";
 import { Type } from "typebox";
 
 interface StructuredOutputDetails {
@@ -60,6 +60,6 @@ const structuredOutputTool = defineTool({
 	},
 });
 
-export default function (pi: ExtensionAPI) {
-	pi.registerTool(structuredOutputTool);
+export default function (swarmz: ExtensionAPI) {
+	swarmz.registerTool(structuredOutputTool);
 }

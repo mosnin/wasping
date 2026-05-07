@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Build pi binaries for all platforms locally.
+# Build swarmz binaries for all platforms locally.
 # Mirrors .github/workflows/build-binaries.yml
 #
 # Usage:
@@ -12,11 +12,11 @@
 #
 # Output:
 #   packages/coding-agent/binaries/
-#     pi-darwin-arm64.tar.gz
-#     pi-darwin-x64.tar.gz
-#     pi-linux-x64.tar.gz
-#     pi-linux-arm64.tar.gz
-#     pi-windows-x64.zip
+#     swarmz-darwin-arm64.tar.gz
+#     swarmz-darwin-x64.tar.gz
+#     swarmz-linux-x64.tar.gz
+#     swarmz-linux-arm64.tar.gz
+#     swarmz-windows-x64.zip
 
 set -euo pipefail
 
@@ -107,9 +107,9 @@ for platform in "${PLATFORMS[@]}"; do
     # call site has a try/catch fallback. For Windows builds, we copy the
     # appropriate .node file alongside the binary below.
     if [[ "$platform" == "windows-x64" ]]; then
-        bun build --compile --external koffi --target=bun-$platform ./dist/bun/cli.js --outfile binaries/$platform/pi.exe
+        bun build --compile --external koffi --target=bun-$platform ./dist/bun/cli.js --outfile binaries/$platform/swarmz.exe
     else
-        bun build --compile --external koffi --target=bun-$platform ./dist/bun/cli.js --outfile binaries/$platform/pi
+        bun build --compile --external koffi --target=bun-$platform ./dist/bun/cli.js --outfile binaries/$platform/swarmz
     fi
 done
 
@@ -144,12 +144,12 @@ cd binaries
 for platform in "${PLATFORMS[@]}"; do
     if [[ "$platform" == "windows-x64" ]]; then
         # Windows (zip)
-        echo "Creating pi-$platform.zip..."
-        (cd $platform && zip -r ../pi-$platform.zip .)
+        echo "Creating swarmz-$platform.zip..."
+        (cd $platform && zip -r ../swarmz-$platform.zip .)
     else
         # Unix platforms (tar.gz) - use wrapper directory for mise compatibility
-        echo "Creating pi-$platform.tar.gz..."
-        mv $platform pi && tar -czf pi-$platform.tar.gz pi && mv pi $platform
+        echo "Creating swarmz-$platform.tar.gz..."
+        mv $platform swarmz && tar -czf swarmz-$platform.tar.gz swarmz && mv swarmz $platform
     fi
 done
 
@@ -158,9 +158,9 @@ echo "==> Extracting archives for testing..."
 for platform in "${PLATFORMS[@]}"; do
     rm -rf $platform
     if [[ "$platform" == "windows-x64" ]]; then
-        mkdir -p $platform && (cd $platform && unzip -q ../pi-$platform.zip)
+        mkdir -p $platform && (cd $platform && unzip -q ../swarmz-$platform.zip)
     else
-        tar -xzf pi-$platform.tar.gz && mv pi $platform
+        tar -xzf swarmz-$platform.tar.gz && mv swarmz $platform
     fi
 done
 
@@ -171,5 +171,5 @@ ls -lh *.tar.gz *.zip 2>/dev/null || true
 echo ""
 echo "Extracted directories for testing:"
 for platform in "${PLATFORMS[@]}"; do
-    echo "  binaries/$platform/pi"
+    echo "  binaries/$platform/swarmz"
 done

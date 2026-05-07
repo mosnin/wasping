@@ -7,7 +7,7 @@ import {
 	createAssistantMessageEventStream,
 	type Model,
 	type SimpleStreamOptions,
-} from "@mariozechner/pi-ai";
+} from "@mariozechner/swarmz-ai";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { AuthStorage } from "../src/core/auth-storage.js";
 import { ModelRegistry } from "../src/core/model-registry.js";
@@ -22,7 +22,7 @@ describe("createAgentSession OpenRouter attribution headers", () => {
 	let originalTelemetryEnv: string | undefined;
 
 	beforeEach(() => {
-		tempDir = join(tmpdir(), `pi-sdk-openrouter-test-${Date.now()}-${Math.random().toString(36).slice(2)}`);
+		tempDir = join(tmpdir(), `swarmz-sdk-openrouter-test-${Date.now()}-${Math.random().toString(36).slice(2)}`);
 		cwd = join(tempDir, "project");
 		agentDir = join(tempDir, "agent");
 		mkdirSync(cwd, { recursive: true });
@@ -140,8 +140,8 @@ describe("createAgentSession OpenRouter attribution headers", () => {
 	it("adds default attribution headers for OpenRouter models", async () => {
 		const headers = await captureHeaders(createModel("openrouter", "https://openrouter.ai/api/v1"));
 
-		expect(headers?.["HTTP-Referer"]).toBe("https://pi.dev");
-		expect(headers?.["X-OpenRouter-Title"]).toBe("pi");
+		expect(headers?.["HTTP-Referer"]).toBe("https://swarmz.dev");
+		expect(headers?.["X-OpenRouter-Title"]).toBe("swarmz");
 		expect(headers?.["X-OpenRouter-Categories"]).toBe("cli-agent");
 	});
 
@@ -158,8 +158,8 @@ describe("createAgentSession OpenRouter attribution headers", () => {
 	it("adds attribution headers for custom providers routed through OpenRouter", async () => {
 		const headers = await captureHeaders(createModel("custom-openrouter", "https://openrouter.ai/api/v1"));
 
-		expect(headers?.["HTTP-Referer"]).toBe("https://pi.dev");
-		expect(headers?.["X-OpenRouter-Title"]).toBe("pi");
+		expect(headers?.["HTTP-Referer"]).toBe("https://swarmz.dev");
+		expect(headers?.["X-OpenRouter-Title"]).toBe("swarmz");
 		expect(headers?.["X-OpenRouter-Categories"]).toBe("cli-agent");
 	});
 

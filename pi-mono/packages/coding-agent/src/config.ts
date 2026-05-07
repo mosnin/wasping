@@ -222,7 +222,7 @@ export function getSelfUpdateCommand(packageName: string, npmCommand?: string[])
 export function getSelfUpdateUnavailableInstruction(packageName: string, npmCommand?: string[]): string {
 	const method = detectInstallMethod();
 	if (method === "bun-binary") {
-		return `Download from: https://github.com/badlogic/pi-mono/releases/latest`;
+		return `Download from: https://github.com/badlogic/swarmz/releases/latest`;
 	}
 	const command = getSelfUpdateCommandForMethod(method, packageName, npmCommand);
 	if (command) {
@@ -370,10 +370,10 @@ interface PackageJson {
 const pkg = JSON.parse(readFileSync(getPackageJsonPath(), "utf-8")) as PackageJson;
 
 const piConfigName: string | undefined = pkg.piConfig?.name;
-export const PACKAGE_NAME: string = pkg.name || "@mariozechner/pi-coding-agent";
-export const APP_NAME: string = piConfigName || "pi";
+export const PACKAGE_NAME: string = pkg.name || "@mariozechner/swarmz-coding-agent";
+export const APP_NAME: string = piConfigName || "swarmz";
 export const APP_TITLE: string = piConfigName ? APP_NAME : "π";
-export const CONFIG_DIR_NAME: string = pkg.piConfig?.configDir || ".pi";
+export const CONFIG_DIR_NAME: string = pkg.piConfig?.configDir || ".swarmz";
 export const VERSION: string = pkg.version || "0.0.0";
 
 // e.g., PI_CODING_AGENT_DIR or TAU_CODING_AGENT_DIR
@@ -386,7 +386,7 @@ export function expandTildePath(path: string): string {
 	return path;
 }
 
-const DEFAULT_SHARE_VIEWER_URL = "https://pi.dev/session/";
+const DEFAULT_SHARE_VIEWER_URL = "https://swarmz.dev/session/";
 
 /** Get the share viewer URL for a gist ID */
 export function getShareViewerUrl(gistId: string): string {
@@ -395,10 +395,10 @@ export function getShareViewerUrl(gistId: string): string {
 }
 
 // =============================================================================
-// User Config Paths (~/.pi/agent/*)
+// User Config Paths (~/.swarmz/agent/*)
 // =============================================================================
 
-/** Get the agent config directory (e.g., ~/.pi/agent/) */
+/** Get the agent config directory (e.g., ~/.swarmz/agent/) */
 export function getAgentDir(): string {
 	const envDir = process.env[ENV_AGENT_DIR];
 	if (envDir) {

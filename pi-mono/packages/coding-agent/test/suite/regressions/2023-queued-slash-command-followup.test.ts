@@ -1,6 +1,6 @@
-import type { AgentTool } from "@mariozechner/pi-agent-core";
-import { fauxAssistantMessage, fauxToolCall } from "@mariozechner/pi-ai";
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { AgentTool } from "@mariozechner/swarmz-agent-core";
+import { fauxAssistantMessage, fauxToolCall } from "@mariozechner/swarmz-ai";
+import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
 import { Type } from "typebox";
 import { afterEach, describe, expect, it } from "vitest";
 import { createHarness, getAssistantTexts, getUserTexts, type Harness } from "../harness.js";
@@ -37,9 +37,9 @@ describe("issue #2023 queued slash-command follow-up", () => {
 		const harness = await createHarness({
 			tools: [waitTool],
 			extensionFactories: [
-				(pi) => {
-					extensionApi = pi;
-					pi.registerCommand("testcmd", {
+				(swarmz) => {
+					extensionApi = swarmz;
+					swarmz.registerCommand("testcmd", {
 						description: "Test command",
 						handler: async (args) => {
 							commandRuns.push(args);

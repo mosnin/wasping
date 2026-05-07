@@ -1,6 +1,6 @@
 # Termux (Android) Setup
 
-Pi runs on Android via [Termux](https://termux.dev/), a terminal emulator and Linux environment for Android.
+Swarmz runs on Android via [Termux](https://termux.dev/), a terminal emulator and Linux environment for Android.
 
 ## Prerequisites
 
@@ -16,14 +16,14 @@ pkg update && pkg upgrade
 # Install dependencies
 pkg install nodejs termux-api git
 
-# Install pi
-npm install -g @mariozechner/pi-coding-agent
+# Install swarmz
+npm install -g @mariozechner/swarmz-coding-agent
 
 # Create config directory
-mkdir -p ~/.pi/agent
+mkdir -p ~/.swarmz/agent
 
-# Run pi
-pi
+# Run swarmz
+swarmz
 ```
 
 ## Clipboard Support
@@ -34,7 +34,7 @@ Image clipboard is not supported on Termux (the `ctrl+v` image paste feature wil
 
 ## Example AGENTS.md for Termux
 
-Create `~/.pi/agent/AGENTS.md` to help the agent understand the Termux environment:
+Create `~/.swarmz/agent/AGENTS.md` to help the agent understand the Termux environment:
 
 ```markdown
 # Agent Environment: Termux on Android

@@ -5,9 +5,9 @@
  * and after compaction the session is reloaded.
  */
 
-import type { AgentMessage, ThinkingLevel } from "@mariozechner/pi-agent-core";
-import type { AssistantMessage, Model, Usage } from "@mariozechner/pi-ai";
-import { completeSimple } from "@mariozechner/pi-ai";
+import type { AgentMessage, ThinkingLevel } from "@mariozechner/swarmz-agent-core";
+import type { AssistantMessage, Model, Usage } from "@mariozechner/swarmz-ai";
+import { completeSimple } from "@mariozechner/swarmz-ai";
 import {
 	convertToLlm,
 	createBranchSummaryMessage,
@@ -45,7 +45,7 @@ function extractFileOperations(
 ): FileOperations {
 	const fileOps = createFileOps();
 
-	// Collect from previous compaction's details (if pi-generated)
+	// Collect from previous compaction's details (if swarmz-generated)
 	if (prevCompactionIndex >= 0) {
 		const prevCompaction = entries[prevCompactionIndex] as CompactionEntry;
 		if (!prevCompaction.fromHook && prevCompaction.details) {
