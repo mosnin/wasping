@@ -8,8 +8,8 @@
  * - Edge case tests (wide chars, styled text, emoji)
  */
 
-import type { ExtensionAPI, ExtensionCommandContext, Theme } from "@mariozechner/pi-coding-agent";
-import { CURSOR_MARKER, type Focusable, matchesKey, visibleWidth } from "@mariozechner/pi-tui";
+import type { ExtensionAPI, ExtensionCommandContext, Theme } from "@midhaven/swarmz-coding-agent";
+import { CURSOR_MARKER, type Focusable, matchesKey, visibleWidth } from "@midhaven/swarmz-tui";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.registerCommand("overlay-test", {

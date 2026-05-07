@@ -5,9 +5,9 @@
  * and after compaction the session is reloaded.
  */
 
-import type { AgentMessage, ThinkingLevel } from "@mariozechner/pi-agent-core";
-import type { AssistantMessage, Model, Usage } from "@mariozechner/pi-ai";
-import { completeSimple } from "@mariozechner/pi-ai";
+import type { AgentMessage, ThinkingLevel } from "@midhaven/swarmz-agent-core";
+import type { AssistantMessage, Model, Usage } from "@midhaven/swarmz-ai";
+import { completeSimple } from "@midhaven/swarmz-ai";
 import {
 	convertToLlm,
 	createBranchSummaryMessage,

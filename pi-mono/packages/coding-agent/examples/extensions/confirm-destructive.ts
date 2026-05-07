@@ -5,7 +5,7 @@
  * Demonstrates how to cancel session events using the before_* events.
  */
 
-import type { ExtensionAPI, SessionBeforeSwitchEvent, SessionMessageEntry } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI, SessionBeforeSwitchEvent, SessionMessageEntry } from "@midhaven/swarmz-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.on("session_before_switch", async (event: SessionBeforeSwitchEvent, ctx) => {

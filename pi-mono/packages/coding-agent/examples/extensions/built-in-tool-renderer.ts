@@ -25,9 +25,9 @@
  *   swarmz -e ./built-in-tool-renderer.ts
  */
 
-import type { BashToolDetails, EditToolDetails, ExtensionAPI, ReadToolDetails } from "@mariozechner/pi-coding-agent";
-import { createBashTool, createEditTool, createReadTool, createWriteTool } from "@mariozechner/pi-coding-agent";
-import { Text } from "@mariozechner/pi-tui";
+import type { BashToolDetails, EditToolDetails, ExtensionAPI, ReadToolDetails } from "@midhaven/swarmz-coding-agent";
+import { createBashTool, createEditTool, createReadTool, createWriteTool } from "@midhaven/swarmz-coding-agent";
+import { Text } from "@midhaven/swarmz-tui";
 
 export default function (swarmz: ExtensionAPI) {
 	const cwd = process.cwd();

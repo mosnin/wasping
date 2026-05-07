@@ -9,7 +9,7 @@
  *   ping                        → "pong" (instant, no LLM)
  *   time                        → current time (instant, no LLM)
  */
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.on("input", async (event, ctx) => {

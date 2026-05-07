@@ -7,7 +7,7 @@ Swarmz is a minimal terminal coding harness. It is designed to stay small at the
 Install swarmz with npm:
 
 ```bash
-npm install -g @mariozechner/pi-coding-agent
+npm install -g @midhaven/swarmz-coding-agent
 ```
 
 Then run it in a project directory:

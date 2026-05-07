@@ -1,7 +1,7 @@
-import { complete, getModel } from "@mariozechner/pi-ai";
-import type { ExtensionAPI, ExtensionCommandContext } from "@mariozechner/pi-coding-agent";
-import { DynamicBorder, getMarkdownTheme } from "@mariozechner/pi-coding-agent";
-import { Container, Markdown, matchesKey, Text } from "@mariozechner/pi-tui";
+import { complete, getModel } from "@midhaven/swarmz-ai";
+import type { ExtensionAPI, ExtensionCommandContext } from "@midhaven/swarmz-coding-agent";
+import { DynamicBorder, getMarkdownTheme } from "@midhaven/swarmz-coding-agent";
+import { Container, Markdown, matchesKey, Text } from "@midhaven/swarmz-tui";
 
 type ContentBlock = {
 	type?: string;

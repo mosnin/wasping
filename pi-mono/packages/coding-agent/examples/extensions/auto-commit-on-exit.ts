@@ -5,7 +5,7 @@
  * Uses the last assistant message to generate a commit message.
  */
 
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.on("session_shutdown", async (_event, ctx) => {

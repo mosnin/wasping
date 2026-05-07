@@ -5,7 +5,7 @@
  * Useful to ensure work is committed before switching context.
  */
 
-import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI, ExtensionContext } from "@midhaven/swarmz-coding-agent";
 
 async function checkDirtyRepo(
 	swarmz: ExtensionAPI,

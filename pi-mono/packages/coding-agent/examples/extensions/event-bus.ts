@@ -7,7 +7,7 @@
  * Usage: /emit [event-name] [data] - emit an event on the bus
  */
 
-import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI, ExtensionContext } from "@midhaven/swarmz-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	// Store ctx for use in event handler

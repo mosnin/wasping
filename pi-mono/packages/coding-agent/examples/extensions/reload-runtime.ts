@@ -5,7 +5,7 @@
  * tool that queues a follow-up command to trigger reload.
  */
 
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
 import { Type } from "typebox";
 
 export default function (swarmz: ExtensionAPI) {

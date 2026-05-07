@@ -7,7 +7,7 @@
  * Usage: swarmz -e ./model-status.ts
  */
 
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.on("model_select", async (event, ctx) => {

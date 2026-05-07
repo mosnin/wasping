@@ -13,9 +13,9 @@
  *   swarmz --extension examples/extensions/custom-compaction.ts
  */
 
-import { complete } from "@mariozechner/pi-ai";
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { convertToLlm, serializeConversation } from "@mariozechner/pi-coding-agent";
+import { complete } from "@midhaven/swarmz-ai";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
+import { convertToLlm, serializeConversation } from "@midhaven/swarmz-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.on("session_before_compact", async (event, ctx) => {

@@ -1,6 +1,6 @@
 import { i18n } from "@mariozechner/mini-lit";
-import type { AgentTool } from "@mariozechner/pi-agent-core";
-import type { ToolResultMessage } from "@mariozechner/pi-ai";
+import type { AgentTool } from "@midhaven/swarmz-agent-core";
+import type { ToolResultMessage } from "@midhaven/swarmz-ai";
 import { html } from "lit";
 import { createRef, ref } from "lit/directives/ref.js";
 import { Code } from "lucide";

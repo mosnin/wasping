@@ -137,7 +137,7 @@ cp permission-gate.ts ~/.swarmz/agent/extensions/
 See [docs/extensions.md](../../docs/extensions.md) for full documentation.
 
 ```typescript
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
 import { Type } from "typebox";
 
 export default function (swarmz: ExtensionAPI) {
@@ -179,7 +179,7 @@ export default function (swarmz: ExtensionAPI) {
 
 **Use StringEnum for string parameters** (required for Google API compatibility):
 ```typescript
-import { StringEnum } from "@mariozechner/pi-ai";
+import { StringEnum } from "@midhaven/swarmz-ai";
 
 // Good
 action: StringEnum(["list", "add"] as const)

@@ -9,9 +9,9 @@
  * 2. Use /tools to open the tool selector
  */
 
-import type { ExtensionAPI, ExtensionContext, ToolInfo } from "@mariozechner/pi-coding-agent";
-import { getSettingsListTheme } from "@mariozechner/pi-coding-agent";
-import { Container, type SettingItem, SettingsList } from "@mariozechner/pi-tui";
+import type { ExtensionAPI, ExtensionContext, ToolInfo } from "@midhaven/swarmz-coding-agent";
+import { getSettingsListTheme } from "@midhaven/swarmz-coding-agent";
+import { Container, type SettingItem, SettingsList } from "@midhaven/swarmz-tui";
 
 // State persisted to session
 interface ToolsState {

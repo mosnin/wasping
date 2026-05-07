@@ -1,4 +1,4 @@
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
 
 export default function widgetPlacementExtension(swarmz: ExtensionAPI) {
 	swarmz.on("session_start", (_event, ctx) => {

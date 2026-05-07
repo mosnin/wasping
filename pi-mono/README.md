@@ -47,11 +47,11 @@ I regularly publish my own `swarmz` work sessions here:
 
 | Package | Description |
 |---------|-------------|
-| **[@mariozechner/pi-ai](packages/ai)** | Unified multi-provider LLM API (OpenAI, Anthropic, Google, etc.) |
-| **[@mariozechner/pi-agent-core](packages/agent)** | Agent runtime with tool calling and state management |
-| **[@mariozechner/pi-coding-agent](packages/coding-agent)** | Interactive coding agent CLI |
-| **[@mariozechner/pi-tui](packages/tui)** | Terminal UI library with differential rendering |
-| **[@mariozechner/pi-web-ui](packages/web-ui)** | Web components for AI chat interfaces |
+| **[@midhaven/swarmz-ai](packages/ai)** | Unified multi-provider LLM API (OpenAI, Anthropic, Google, etc.) |
+| **[@midhaven/swarmz-agent-core](packages/agent)** | Agent runtime with tool calling and state management |
+| **[@midhaven/swarmz-coding-agent](packages/coding-agent)** | Interactive coding agent CLI |
+| **[@midhaven/swarmz-tui](packages/tui)** | Terminal UI library with differential rendering |
+| **[@midhaven/swarmz-web-ui](packages/web-ui)** | Web components for AI chat interfaces |
 
 ## Chat bot workflows
 

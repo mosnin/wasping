@@ -30,7 +30,7 @@
 
 ### Breaking Changes
 
-- Migrated the web UI's TypeBox-based tool definitions and runtime dependency from `@sinclair/typebox` 0.34.x to `typebox` 1.x. Install and import from `typebox` instead of `@sinclair/typebox` when embedding or extending `@mariozechner/pi-web-ui` with shared TypeBox schemas ([#3112](https://github.com/badlogic/pi-mono/issues/3112))
+- Migrated the web UI's TypeBox-based tool definitions and runtime dependency from `@sinclair/typebox` 0.34.x to `typebox` 1.x. Install and import from `typebox` instead of `@sinclair/typebox` when embedding or extending `@midhaven/swarmz-web-ui` with shared TypeBox schemas ([#3112](https://github.com/badlogic/pi-mono/issues/3112))
 
 ### Fixed
 
@@ -88,7 +88,7 @@
 
 ### Added
 
-- Exported `CustomProviderDialog` from `@mariozechner/pi-web-ui` ([#2267](https://github.com/badlogic/pi-mono/issues/2267))
+- Exported `CustomProviderDialog` from `@midhaven/swarmz-web-ui` ([#2267](https://github.com/badlogic/pi-mono/issues/2267))
 
 ## [0.58.4] - 2026-03-16
 
@@ -113,7 +113,7 @@
 
 ### Fixed
 
-- Build `@mariozechner/pi-web-ui` with `tsc` instead of `tsgo` so Lit decorator-based state updates rerender correctly.
+- Build `@midhaven/swarmz-web-ui` with `tsc` instead of `tsgo` so Lit decorator-based state updates rerender correctly.
 
 ## [0.58.2] - 2026-03-15
 
@@ -325,19 +325,19 @@
 
 ### Breaking Changes
 
-- **Agent class moved to `@mariozechner/pi-agent-core`**: The `Agent` class, `AgentState`, and related types are no longer exported from this package. Import them from `@mariozechner/pi-agent-core` instead.
+- **Agent class moved to `@midhaven/swarmz-agent-core`**: The `Agent` class, `AgentState`, and related types are no longer exported from this package. Import them from `@midhaven/swarmz-agent-core` instead.
 
 - **Transport abstraction removed**: `ProviderTransport`, `AppTransport`, `AgentTransport` interface, and related types have been removed. The `Agent` class now uses `streamFn` for custom streaming.
 
-- **`AppMessage` renamed to `AgentMessage`**: Now imported from `@mariozechner/pi-agent-core`. Custom message types use declaration merging on `CustomAgentMessages` interface.
+- **`AppMessage` renamed to `AgentMessage`**: Now imported from `@midhaven/swarmz-agent-core`. Custom message types use declaration merging on `CustomAgentMessages` interface.
 
 - **`UserMessageWithAttachments` is now a custom message type**: Has `role: "user-with-attachments"` instead of `role: "user"`. Use `isUserMessageWithAttachments()` type guard.
 
-- **`CustomMessages` interface removed**: Use declaration merging on `CustomAgentMessages` from `@mariozechner/pi-agent-core` instead.
+- **`CustomMessages` interface removed**: Use declaration merging on `CustomAgentMessages` from `@midhaven/swarmz-agent-core` instead.
 
 - **`agent.appendMessage()` removed**: Use `agent.queueMessage()` instead.
 
-- **Agent event types changed**: `AgentInterface` now handles new event types from `@mariozechner/pi-agent-core`: `message_start`, `message_end`, `message_update`, `turn_start`, `turn_end`, `agent_start`, `agent_end`.
+- **Agent event types changed**: `AgentInterface` now handles new event types from `@midhaven/swarmz-agent-core`: `message_start`, `message_end`, `message_update`, `turn_start`, `turn_end`, `agent_start`, `agent_end`.
 
 ### Added
 
@@ -357,7 +357,7 @@
 
 ### Removed
 
-- `Agent` class (moved to `@mariozechner/pi-agent-core`)
+- `Agent` class (moved to `@midhaven/swarmz-agent-core`)
 - `ProviderTransport` class
 - `AppTransport` class
 - `AgentTransport` interface
@@ -369,7 +369,7 @@
 
 **Before (0.30.x):**
 ```typescript
-import { Agent, ProviderTransport, type AppMessage } from '@mariozechner/pi-web-ui';
+import { Agent, ProviderTransport, type AppMessage } from '@midhaven/swarmz-web-ui';
 
 const agent = new Agent({
   transport: new ProviderTransport(),
@@ -379,8 +379,8 @@ const agent = new Agent({
 
 **After:**
 ```typescript
-import { Agent, type AgentMessage } from '@mariozechner/pi-agent-core';
-import { defaultConvertToLlm } from '@mariozechner/pi-web-ui';
+import { Agent, type AgentMessage } from '@midhaven/swarmz-agent-core';
+import { defaultConvertToLlm } from '@midhaven/swarmz-web-ui';
 
 const agent = new Agent({
   convertToLlm: (messages: AgentMessage[]) => {
@@ -394,14 +394,14 @@ const agent = new Agent({
 **Custom message types:**
 ```typescript
 // Before: declaration merging on CustomMessages
-declare module "@mariozechner/pi-web-ui" {
+declare module "@midhaven/swarmz-web-ui" {
   interface CustomMessages {
     "my-message": MyMessage;
   }
 }
 
 // After: declaration merging on CustomAgentMessages
-declare module "@mariozechner/pi-agent-core" {
+declare module "@midhaven/swarmz-agent-core" {
   interface CustomAgentMessages {
     "my-message": MyMessage;
   }

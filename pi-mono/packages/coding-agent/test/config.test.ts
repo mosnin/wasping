@@ -87,8 +87,8 @@ describe("detectInstallMethod", () => {
 		);
 
 		expect(detectInstallMethod()).toBe("pnpm");
-		expect(getUpdateInstruction("@mariozechner/pi-coding-agent")).toBe(
-			"Run: pnpm install -g @mariozechner/pi-coding-agent",
+		expect(getUpdateInstruction("@midhaven/swarmz-coding-agent")).toBe(
+			"Run: pnpm install -g @midhaven/swarmz-coding-agent",
 		);
 	});
 
@@ -96,51 +96,51 @@ describe("detectInstallMethod", () => {
 		setExecPath("/usr/local/bin/node");
 
 		expect(detectInstallMethod()).toBe("unknown");
-		expect(getSelfUpdateCommand("@mariozechner/pi-coding-agent")).toBeUndefined();
-		expect(getUpdateInstruction("@mariozechner/pi-coding-agent")).toBe(
-			"Update @mariozechner/pi-coding-agent using the package manager, wrapper, or source checkout that provides this installation.",
+		expect(getSelfUpdateCommand("@midhaven/swarmz-coding-agent")).toBeUndefined();
+		expect(getUpdateInstruction("@midhaven/swarmz-coding-agent")).toBe(
+			"Update @midhaven/swarmz-coding-agent using the package manager, wrapper, or source checkout that provides this installation.",
 		);
 	});
 
 	test("self-updates npm installs from custom prefixes", () => {
 		const { prefix } = createNpmPrefixInstall();
 
-		const command = getSelfUpdateCommand("@mariozechner/pi-coding-agent");
+		const command = getSelfUpdateCommand("@midhaven/swarmz-coding-agent");
 
 		expect(detectInstallMethod()).toBe("npm");
 		expect(command).toEqual({
 			command: "npm",
-			args: ["--prefix", prefix, "install", "-g", "@mariozechner/pi-coding-agent"],
-			display: `npm --prefix ${prefix} install -g @mariozechner/pi-coding-agent`,
+			args: ["--prefix", prefix, "install", "-g", "@midhaven/swarmz-coding-agent"],
+			display: `npm --prefix ${prefix} install -g @midhaven/swarmz-coding-agent`,
 		});
 	});
 
 	test("self-update respects configured npmCommand", () => {
 		const { prefix } = createNpmPrefixInstall();
 
-		const command = getSelfUpdateCommand("@mariozechner/pi-coding-agent", ["npm", "--prefix", prefix]);
+		const command = getSelfUpdateCommand("@midhaven/swarmz-coding-agent", ["npm", "--prefix", prefix]);
 
 		expect(command).toEqual({
 			command: "npm",
-			args: ["--prefix", prefix, "install", "-g", "@mariozechner/pi-coding-agent"],
-			display: `npm --prefix ${prefix} install -g @mariozechner/pi-coding-agent`,
+			args: ["--prefix", prefix, "install", "-g", "@midhaven/swarmz-coding-agent"],
+			display: `npm --prefix ${prefix} install -g @midhaven/swarmz-coding-agent`,
 		});
 	});
 
 	test("self-update treats empty npmCommand as unset", () => {
 		const { prefix } = createNpmPrefixInstall();
 
-		const command = getSelfUpdateCommand("@mariozechner/pi-coding-agent", []);
+		const command = getSelfUpdateCommand("@midhaven/swarmz-coding-agent", []);
 
-		expect(command?.args).toEqual(["--prefix", prefix, "install", "-g", "@mariozechner/pi-coding-agent"]);
+		expect(command?.args).toEqual(["--prefix", prefix, "install", "-g", "@midhaven/swarmz-coding-agent"]);
 	});
 
 	test("quotes npm self-update display paths", () => {
 		const { prefix } = createNpmPrefixInstall("swarmz prefix ");
 
-		const command = getSelfUpdateCommand("@mariozechner/pi-coding-agent");
+		const command = getSelfUpdateCommand("@midhaven/swarmz-coding-agent");
 
-		expect(command?.display).toBe(`npm --prefix "${prefix}" install -g @mariozechner/pi-coding-agent`);
+		expect(command?.display).toBe(`npm --prefix "${prefix}" install -g @midhaven/swarmz-coding-agent`);
 	});
 
 	test("does not infer Windows npm custom prefixes from package paths", () => {
@@ -149,21 +149,21 @@ describe("detectInstallMethod", () => {
 		setExecPath(`${packageDir}\\dist\\cli.js`);
 
 		expect(detectInstallMethod()).toBe("npm");
-		expect(getUpdateInstruction("@mariozechner/pi-coding-agent")).toBe(
-			"Run: npm install -g @mariozechner/pi-coding-agent",
+		expect(getUpdateInstruction("@midhaven/swarmz-coding-agent")).toBe(
+			"Run: npm install -g @midhaven/swarmz-coding-agent",
 		);
 	});
 
 	test("self-updates bun global installs from bun pm bin", () => {
 		createBunGlobalInstall();
 
-		const command = getSelfUpdateCommand("@mariozechner/pi-coding-agent");
+		const command = getSelfUpdateCommand("@midhaven/swarmz-coding-agent");
 
 		expect(detectInstallMethod()).toBe("bun");
 		expect(command).toEqual({
 			command: "bun",
-			args: ["install", "-g", "@mariozechner/pi-coding-agent"],
-			display: "bun install -g @mariozechner/pi-coding-agent",
+			args: ["install", "-g", "@midhaven/swarmz-coding-agent"],
+			display: "bun install -g @midhaven/swarmz-coding-agent",
 		});
 	});
 
@@ -171,8 +171,8 @@ describe("detectInstallMethod", () => {
 		const { packageDir } = createNpmPrefixInstall();
 		chmodSync(packageDir, 0o500);
 
-		expect(getSelfUpdateCommand("@mariozechner/pi-coding-agent")).toBeUndefined();
-		expect(getSelfUpdateUnavailableInstruction("@mariozechner/pi-coding-agent")).toContain(
+		expect(getSelfUpdateCommand("@midhaven/swarmz-coding-agent")).toBeUndefined();
+		expect(getSelfUpdateUnavailableInstruction("@midhaven/swarmz-coding-agent")).toContain(
 			"the install path is not writable",
 		);
 	});

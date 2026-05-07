@@ -4,7 +4,7 @@
  * Configure API key resolution via AuthStorage and ModelRegistry.
  */
 
-import { AuthStorage, createAgentSession, ModelRegistry, SessionManager } from "@mariozechner/pi-coding-agent";
+import { AuthStorage, createAgentSession, ModelRegistry, SessionManager } from "@midhaven/swarmz-coding-agent";
 
 // Default: AuthStorage uses ~/.swarmz/agent/auth.json
 // ModelRegistry loads built-in + custom models from ~/.swarmz/agent/models.json

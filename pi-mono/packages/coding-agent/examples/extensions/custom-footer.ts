@@ -8,9 +8,9 @@
  * Token stats come from ctx.sessionManager/ctx.model (already accessible).
  */
 
-import type { AssistantMessage } from "@mariozechner/pi-ai";
-import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
-import { truncateToWidth, visibleWidth } from "@mariozechner/pi-tui";
+import type { AssistantMessage } from "@midhaven/swarmz-ai";
+import type { ExtensionAPI } from "@midhaven/swarmz-coding-agent";
+import { truncateToWidth, visibleWidth } from "@midhaven/swarmz-tui";
 
 export default function (swarmz: ExtensionAPI) {
 	let enabled = false;

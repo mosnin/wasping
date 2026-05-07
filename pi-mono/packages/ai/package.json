@@ -1,5 +1,5 @@
 {
-	"name": "@mariozechner/pi-ai",
+	"name": "@midhaven/swarmz-ai",
 	"version": "0.73.0",
 	"description": "Unified LLM API with automatic model discovery and provider configuration",
 	"type": "module",
@@ -90,7 +90,7 @@
 		"unified",
 		"api"
 	],
-	"author": "Mario Zechner",
+	"author": "midhaven",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

@@ -1,5 +1,5 @@
 {
-	"name": "@mariozechner/pi-tui",
+	"name": "@midhaven/swarmz-tui",
 	"version": "0.73.0",
 	"description": "Terminal User Interface library with differential rendering for efficient text-based applications",
 	"type": "module",
@@ -24,7 +24,7 @@
 		"typescript",
 		"cli"
 	],
-	"author": "Mario Zechner",
+	"author": "midhaven",
 	"license": "MIT",
 	"repository": {
 		"type": "git",

@@ -1,4 +1,4 @@
-import { type Model, modelsAreEqual } from "@mariozechner/pi-ai";
+import { type Model, modelsAreEqual } from "@midhaven/swarmz-ai";
 import {
 	Container,
 	type Focusable,
@@ -8,7 +8,7 @@ import {
 	Spacer,
 	Text,
 	type TUI,
-} from "@mariozechner/pi-tui";
+} from "@midhaven/swarmz-tui";
 import type { ModelRegistry } from "../../../core/model-registry.js";
 import type { SettingsManager } from "../../../core/settings-manager.js";
 import { theme } from "../theme/theme.js";

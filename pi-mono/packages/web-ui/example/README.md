@@ -1,6 +1,6 @@
 # Swarmz Web UI - Example
 
-This is a minimal example showing how to use `@mariozechner/pi-web-ui` in a web application.
+This is a minimal example showing how to use `@midhaven/swarmz-web-ui` in a web application.
 
 ## Setup
 

@@ -17,7 +17,7 @@ pkg update && pkg upgrade
 pkg install nodejs termux-api git
 
 # Install swarmz
-npm install -g @mariozechner/pi-coding-agent
+npm install -g @midhaven/swarmz-coding-agent
 
 # Create config directory
 mkdir -p ~/.swarmz/agent

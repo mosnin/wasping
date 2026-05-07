@@ -5,7 +5,7 @@
  * from cwd and ~/.swarmz/agent. Model chosen from settings or first available.
  */
 
-import { createAgentSession } from "@mariozechner/pi-coding-agent";
+import { createAgentSession } from "@midhaven/swarmz-coding-agent";
 
 const { session } = await createAgentSession();
 
