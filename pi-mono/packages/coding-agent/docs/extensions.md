@@ -57,7 +57,7 @@ See [examples/extensions/](../examples/extensions/) for working implementations.
 Create `~/.swarmz/agent/extensions/my-extension.ts`:
 
 ```typescript
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { Type } from "typebox";
 
 export default function (swarmz: ExtensionAPI) {
@@ -139,10 +139,10 @@ To share extensions via npm or git as swarmz packages, see [packages.md](package
 
 | Package | Purpose |
 |---------|---------|
-| `@mariozechner/swarmz-coding-agent` | Extension types (`ExtensionAPI`, `ExtensionContext`, events) |
+| `@mariozechner/pi-coding-agent` | Extension types (`ExtensionAPI`, `ExtensionContext`, events) |
 | `typebox` | Schema definitions for tool parameters |
-| `@mariozechner/swarmz-ai` | AI utilities (`StringEnum` for Google-compatible enums) |
-| `@mariozechner/swarmz-tui` | TUI components for custom rendering |
+| `@mariozechner/pi-ai` | AI utilities (`StringEnum` for Google-compatible enums) |
+| `@mariozechner/pi-tui` | TUI components for custom rendering |
 
 npm dependencies work too. Add a `package.json` next to your extension (or in a parent directory), run `npm install`, and imports from `node_modules/` are resolved automatically.
 
@@ -155,7 +155,7 @@ Node.js built-ins (`node:fs`, `node:path`, etc.) are also available.
 An extension exports a default factory function that receives `ExtensionAPI`. The factory can be synchronous or asynchronous:
 
 ```typescript
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
   // Subscribe to events
@@ -184,7 +184,7 @@ If the factory returns a `Promise`, swarmz awaits it before continuing startup. 
 Use an async factory for one-time startup work such as fetching remote configuration or dynamically discovering available models.
 
 ```typescript
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 export default async function (swarmz: ExtensionAPI) {
   const response = await fetch("http://localhost:1234/v1/models");
@@ -688,7 +688,7 @@ Behavior guarantees:
 - Return values from `tool_call` only control blocking via `{ block: true, reason?: string }`
 
 ```typescript
-import { isToolCallEventType } from "@mariozechner/swarmz-coding-agent";
+import { isToolCallEventType } from "@mariozechner/pi-coding-agent";
 
 swarmz.on("tool_call", async (event, ctx) => {
   // event.toolName - "bash", "read", "write", "edit", etc.
@@ -724,7 +724,7 @@ export type MyToolInput = Static<typeof myToolSchema>;
 Use `isToolCallEventType` with explicit type parameters:
 
 ```typescript
-import { isToolCallEventType } from "@mariozechner/swarmz-coding-agent";
+import { isToolCallEventType } from "@mariozechner/pi-coding-agent";
 import type { MyToolInput } from "my-extension";
 
 swarmz.on("tool_call", (event) => {
@@ -748,7 +748,7 @@ In parallel tool mode, `tool_result` and `tool_execution_end` may interleave in 
 Use `ctx.signal` for nested async work inside the handler. This lets Esc cancel model calls, `fetch()`, and other abort-aware operations started by the extension.
 
 ```typescript
-import { isBashToolResult } from "@mariozechner/swarmz-coding-agent";
+import { isBashToolResult } from "@mariozechner/pi-coding-agent";
 
 swarmz.on("tool_result", async (event, ctx) => {
   // event.toolName, event.toolCallId, event.input
@@ -776,7 +776,7 @@ swarmz.on("tool_result", async (event, ctx) => {
 Fired when user executes `!` or `!!` commands. **Can intercept.**
 
 ```typescript
-import { createLocalBashOperations } from "@mariozechner/swarmz-coding-agent";
+import { createLocalBashOperations } from "@mariozechner/pi-coding-agent";
 
 swarmz.on("user_bash", (event, ctx) => {
   // event.command - the bash command
@@ -1087,7 +1087,7 @@ Options:
 To discover available sessions, use the static `SessionManager.list()` or `SessionManager.listAll()` methods:
 
 ```typescript
-import { SessionManager } from "@mariozechner/swarmz-coding-agent";
+import { SessionManager } from "@mariozechner/pi-coding-agent";
 
 swarmz.registerCommand("switch", {
   description: "Switch to another session",
@@ -1181,7 +1181,7 @@ Tools run with `ExtensionContext`, so they cannot call `ctx.reload()` directly. 
 Example tool the LLM can call to trigger reload:
 
 ```typescript
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { Type } from "typebox";
 
 export default function (swarmz: ExtensionAPI) {
@@ -1230,7 +1230,7 @@ See [dynamic-tools.ts](../examples/extensions/dynamic-tools.ts) for a full examp
 
 ```typescript
 import { Type } from "typebox";
-import { StringEnum } from "@mariozechner/swarmz-ai";
+import { StringEnum } from "@mariozechner/pi-ai";
 
 swarmz.registerTool({
   name: "my_tool",
@@ -1388,7 +1388,7 @@ swarmz.registerCommand("stats", {
 Optional: add argument auto-completion for `/command ...`:
 
 ```typescript
-import type { AutocompleteItem } from "@mariozechner/swarmz-tui";
+import type { AutocompleteItem } from "@mariozechner/pi-tui";
 
 swarmz.registerCommand("deploy", {
   description: "Deploy to an environment",
@@ -1678,7 +1678,7 @@ Pass the real target file path to `withFileMutationQueue()`, not the raw user ar
 Queue the entire mutation window on that target path. That includes read-modify-write logic, not just the final write.
 
 ```typescript
-import { withFileMutationQueue } from "@mariozechner/swarmz-coding-agent";
+import { withFileMutationQueue } from "@mariozechner/pi-coding-agent";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 
@@ -1703,8 +1703,8 @@ async execute(_toolCallId, params, _signal, _onUpdate, ctx) {
 
 ```typescript
 import { Type } from "typebox";
-import { StringEnum } from "@mariozechner/swarmz-ai";
-import { Text } from "@mariozechner/swarmz-tui";
+import { StringEnum } from "@mariozechner/pi-ai";
+import { Text } from "@mariozechner/pi-tui";
 
 swarmz.registerTool({
   name: "my_tool",
@@ -1772,7 +1772,7 @@ async execute(toolCallId, params) {
 }
 ```
 
-**Important:** Use `StringEnum` from `@mariozechner/swarmz-ai` for string enums. `Type.Union`/`Type.Literal` doesn't work with Google's API.
+**Important:** Use `StringEnum` from `@mariozechner/pi-ai` for string enums. `Type.Union`/`Type.Literal` doesn't work with Google's API.
 
 **Argument preparation:** `prepareArguments(args)` is optional. If defined, it runs before schema validation and before `execute()`. Use it to mimic an older accepted input shape when swarmz resumes an older session whose stored tool call arguments no longer match the current schema. Return the object you want validated against `parameters`. Keep the public schema strict. Do not add deprecated compatibility fields to `parameters` just to keep old resumed sessions working.
 
@@ -1845,20 +1845,20 @@ See [examples/extensions/tool-override.ts](../examples/extensions/tool-override.
 **Your implementation must match the exact result shape**, including the `details` type. The UI and session logic depend on these shapes for rendering and state tracking.
 
 Built-in tool implementations:
-- [read.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/read.ts) - `ReadToolDetails`
-- [bash.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/bash.ts) - `BashToolDetails`
-- [edit.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/edit.ts)
-- [write.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/write.ts)
-- [grep.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/grep.ts) - `GrepToolDetails`
-- [find.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/find.ts) - `FindToolDetails`
-- [ls.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/core/tools/ls.ts) - `LsToolDetails`
+- [read.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/read.ts) - `ReadToolDetails`
+- [bash.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/bash.ts) - `BashToolDetails`
+- [edit.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/edit.ts)
+- [write.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/write.ts)
+- [grep.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/grep.ts) - `GrepToolDetails`
+- [find.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/find.ts) - `FindToolDetails`
+- [ls.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/core/tools/ls.ts) - `LsToolDetails`
 
 ### Remote Execution
 
 Built-in tools support pluggable operations for delegating to remote systems (SSH, containers, etc.):
 
 ```typescript
-import { createReadTool, createBashTool, type ReadOperations } from "@mariozechner/swarmz-coding-agent";
+import { createReadTool, createBashTool, type ReadOperations } from "@mariozechner/pi-coding-agent";
 
 // Create tool with custom operations
 const remoteRead = createReadTool(cwd, {
@@ -1889,7 +1889,7 @@ For `user_bash`, extensions can reuse swarmz's local shell backend via `createLo
 The bash tool also supports a spawn hook to adjust the command, cwd, or env before execution:
 
 ```typescript
-import { createBashTool } from "@mariozechner/swarmz-coding-agent";
+import { createBashTool } from "@mariozechner/pi-coding-agent";
 
 const bashTool = createBashTool(cwd, {
   spawnHook: ({ command, cwd, env }) => ({
@@ -1919,7 +1919,7 @@ import {
   formatSize,        // Human-readable size (e.g., "50KB", "1.5MB")
   DEFAULT_MAX_BYTES, // 50KB
   DEFAULT_MAX_LINES, // 2000
-} from "@mariozechner/swarmz-coding-agent";
+} from "@mariozechner/pi-coding-agent";
 
 async execute(toolCallId, params, signal, onUpdate, ctx) {
   const output = await runCommand();
@@ -1974,7 +1974,7 @@ export default function (swarmz: ExtensionAPI) {
 
 ### Custom Rendering
 
-Tools can provide `renderCall` and `renderResult` for custom TUI display. See [tui.md](tui.md) for the full component API and [tool-execution.ts](https://github.com/badlogic/swarmz/blob/main/packages/coding-agent/src/modes/interactive/components/tool-execution.ts) for how tool rows are composed.
+Tools can provide `renderCall` and `renderResult` for custom TUI display. See [tui.md](tui.md) for the full component API and [tool-execution.ts](https://github.com/badlogic/pi-mono/blob/main/packages/coding-agent/src/modes/interactive/components/tool-execution.ts) for how tool rows are composed.
 
 By default, tool output is wrapped in a `Box` that handles padding and background. A defined `renderCall` or `renderResult` must return a `Component`. If a slot renderer is not defined, `tool-execution.ts` uses fallback rendering for that slot.
 
@@ -2010,7 +2010,7 @@ Use `context.state` for cross-slot shared state. Keep slot-local caches on the r
 Renders the tool call or header:
 
 ```typescript
-import { Text } from "@mariozechner/swarmz-tui";
+import { Text } from "@mariozechner/pi-tui";
 
 renderCall(args, theme, context) {
   const text = (context.lastComponent as Text | undefined) ?? new Text("", 0, 0);
@@ -2055,7 +2055,7 @@ If a slot intentionally has no visible content, return an empty `Component` such
 Use `keyHint()` to display keybinding hints that respect the active keybinding configuration:
 
 ```typescript
-import { keyHint } from "@mariozechner/swarmz-coding-agent";
+import { keyHint } from "@mariozechner/pi-coding-agent";
 
 renderResult(result, { expanded }, theme, context) {
   let text = theme.fg("success", "✓ Done");
@@ -2329,7 +2329,7 @@ See [github-issue-autocomplete.ts](../examples/extensions/github-issue-autocompl
 For complex UI, use `ctx.ui.custom()`. This temporarily replaces the editor with your component until `done()` is called:
 
 ```typescript
-import { Text, Component } from "@mariozechner/swarmz-tui";
+import { Text, Component } from "@mariozechner/pi-tui";
 
 const result = await ctx.ui.custom<boolean>((tui, theme, keybindings, done) => {
   const text = new Text("Press Enter to confirm, Escape to cancel", 1, 1);
@@ -2387,8 +2387,8 @@ See [tui.md](tui.md) for the full `OverlayOptions` API and [overlay-qa-tests.ts]
 Replace the main input editor with a custom implementation (vim mode, emacs mode, etc.):
 
 ```typescript
-import { CustomEditor, type ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
-import { matchesKey } from "@mariozechner/swarmz-tui";
+import { CustomEditor, type ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import { matchesKey } from "@mariozechner/pi-tui";
 
 class VimEditor extends CustomEditor {
   private mode: "normal" | "insert" = "insert";
@@ -2438,7 +2438,7 @@ See [tui.md](tui.md) Pattern 7 for a complete example with mode indicator.
 Register a custom renderer for messages with your `customType`:
 
 ```typescript
-import { Text } from "@mariozechner/swarmz-tui";
+import { Text } from "@mariozechner/pi-tui";
 
 swarmz.registerMessageRenderer("my-extension", (message, options, theme) => {
   const { expanded } = options;
@@ -2487,7 +2487,7 @@ theme.strikethrough(text)
 For syntax highlighting in custom tool renderers:
 
 ```typescript
-import { highlightCode, getLanguageFromPath } from "@mariozechner/swarmz-coding-agent";
+import { highlightCode, getLanguageFromPath } from "@mariozechner/pi-coding-agent";
 
 // Highlight code with explicit language
 const highlighted = highlightCode("const x = 1;", "typescript", theme);

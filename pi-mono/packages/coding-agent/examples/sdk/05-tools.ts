@@ -10,7 +10,7 @@
  * extensions system using swarmz.registerTool().
  */
 
-import { createAgentSession, SessionManager } from "@mariozechner/swarmz-coding-agent";
+import { createAgentSession, SessionManager } from "@mariozechner/pi-coding-agent";
 
 // Read-only mode (no edit/write)
 await createAgentSession({

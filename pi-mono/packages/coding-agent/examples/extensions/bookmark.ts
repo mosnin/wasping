@@ -7,7 +7,7 @@
  * Usage: /bookmark [label] - bookmark the last assistant message
  */
 
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.registerCommand("bookmark", {

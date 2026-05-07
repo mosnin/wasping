@@ -7,7 +7,7 @@
  * - /timed-signal - Shows confirm using AbortSignal (manual approach)
  */
 
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	// Simple approach: use timeout option (recommended)

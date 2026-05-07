@@ -1,5 +1,5 @@
-import type { AgentMessage, ThinkingLevel } from "@mariozechner/swarmz-agent-core";
-import type { Model } from "@mariozechner/swarmz-ai";
+import type { AgentMessage, ThinkingLevel } from "@mariozechner/pi-agent-core";
+import type { Model } from "@mariozechner/pi-ai";
 
 /**
  * Transaction interface for atomic operations across stores.

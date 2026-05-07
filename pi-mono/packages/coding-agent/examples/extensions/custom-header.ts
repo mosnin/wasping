@@ -5,8 +5,8 @@
  * (logo + keybinding hints) with a custom component showing the swarmz mascot.
  */
 
-import type { ExtensionAPI, Theme } from "@mariozechner/swarmz-coding-agent";
-import { VERSION } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI, Theme } from "@mariozechner/pi-coding-agent";
+import { VERSION } from "@mariozechner/pi-coding-agent";
 
 // --- Swarmz MASCOT ---
 // Based on pi_mascot.ts - the swarmz agent character

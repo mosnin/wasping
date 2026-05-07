@@ -3,7 +3,7 @@
  *
  * Demonstrates ctx.getSystemPrompt() for accessing the effective system prompt.
  */
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.on("agent_start", (_event, ctx) => {

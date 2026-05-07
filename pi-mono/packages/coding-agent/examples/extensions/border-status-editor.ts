@@ -3,9 +3,9 @@ import {
 	type ExtensionAPI,
 	type ExtensionContext,
 	type KeybindingsManager,
-} from "@mariozechner/swarmz-coding-agent";
-import type { Component, EditorTheme, TUI } from "@mariozechner/swarmz-tui";
-import { truncateToWidth, visibleWidth } from "@mariozechner/swarmz-tui";
+} from "@mariozechner/pi-coding-agent";
+import type { Component, EditorTheme, TUI } from "@mariozechner/pi-tui";
+import { truncateToWidth, visibleWidth } from "@mariozechner/pi-tui";
 
 function fitBorder(
 	left: string,

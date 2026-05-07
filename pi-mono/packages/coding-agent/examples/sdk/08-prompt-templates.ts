@@ -11,7 +11,7 @@ import {
 	getAgentDir,
 	type PromptTemplate,
 	SessionManager,
-} from "@mariozechner/swarmz-coding-agent";
+} from "@mariozechner/pi-coding-agent";
 
 // Define custom templates
 const deployTemplate: PromptTemplate = {

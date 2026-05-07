@@ -10,7 +10,7 @@ import {
 	streamSimple,
 	type ToolResultMessage,
 	validateToolArguments,
-} from "@mariozechner/swarmz-ai";
+} from "@mariozechner/pi-ai";
 import type {
 	AgentContext,
 	AgentEvent,

@@ -7,7 +7,7 @@ This page gets you from install to a useful first swarmz session.
 Swarmz is distributed as an npm package:
 
 ```bash
-npm install -g @mariozechner/swarmz-coding-agent
+npm install -g @mariozechner/pi-coding-agent
 ```
 
 Then start swarmz in the project directory you want it to work on:

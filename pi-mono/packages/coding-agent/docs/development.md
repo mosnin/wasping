@@ -5,7 +5,7 @@ See [AGENTS.md](../../../AGENTS.md) for additional guidelines.
 ## Setup
 
 ```bash
-git clone https://github.com/badlogic/swarmz
+git clone https://github.com/badlogic/pi-mono
 cd swarmz
 npm install
 npm run build

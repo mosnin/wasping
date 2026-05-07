@@ -40,10 +40,10 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import type { Api, Model } from "@mariozechner/swarmz-ai";
-import type { ExtensionAPI, ExtensionContext } from "@mariozechner/swarmz-coding-agent";
-import { DynamicBorder, getAgentDir } from "@mariozechner/swarmz-coding-agent";
-import { Container, Key, type SelectItem, SelectList, Text } from "@mariozechner/swarmz-tui";
+import type { Api, Model } from "@mariozechner/pi-ai";
+import type { ExtensionAPI, ExtensionContext } from "@mariozechner/pi-coding-agent";
+import { DynamicBorder, getAgentDir } from "@mariozechner/pi-coding-agent";
+import { Container, Key, type SelectItem, SelectList, Text } from "@mariozechner/pi-tui";
 
 // Preset configuration
 interface Preset {

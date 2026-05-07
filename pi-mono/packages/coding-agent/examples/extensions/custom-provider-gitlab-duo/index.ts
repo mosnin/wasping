@@ -20,8 +20,8 @@ import {
 	type SimpleStreamOptions,
 	streamSimpleAnthropic,
 	streamSimpleOpenAIResponses,
-} from "@mariozechner/swarmz-ai";
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+} from "@mariozechner/pi-ai";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 // =============================================================================
 // Constants

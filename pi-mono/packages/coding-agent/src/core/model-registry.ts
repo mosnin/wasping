@@ -17,8 +17,8 @@ import {
 	registerApiProvider,
 	resetApiProviders,
 	type SimpleStreamOptions,
-} from "@mariozechner/swarmz-ai";
-import { registerOAuthProvider, resetOAuthProviders } from "@mariozechner/swarmz-ai/oauth";
+} from "@mariozechner/pi-ai";
+import { registerOAuthProvider, resetOAuthProviders } from "@mariozechner/pi-ai/oauth";
 import { existsSync, readFileSync } from "fs";
 import { join } from "path";
 import { type Static, Type } from "typebox";

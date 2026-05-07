@@ -115,7 +115,7 @@ Use `/export [file]` to write a session to HTML.
 
 Use `/share` to upload a private GitHub gist with a shareable HTML link.
 
-If you use swarmz for open source work and want to publish sessions for model, prompt, tool, and evaluation research, see [`badlogic/swarmz-share-hf`](https://github.com/badlogic/swarmz-share-hf). It publishes sessions to Hugging Face datasets.
+If you use swarmz for open source work and want to publish sessions for model, prompt, tool, and evaluation research, see [`badlogic/swarmz-share-hf`](https://github.com/badlogic/pi-mono-share-hf). It publishes sessions to Hugging Face datasets.
 
 ## CLI Reference
 

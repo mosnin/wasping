@@ -4,8 +4,8 @@
  * Exposes /tui to show TUI redraw stats.
  */
 
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
-import { Text } from "@mariozechner/swarmz-tui";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import { Text } from "@mariozechner/pi-tui";
 
 export default function (swarmz: ExtensionAPI) {
 	swarmz.registerCommand("tui", {

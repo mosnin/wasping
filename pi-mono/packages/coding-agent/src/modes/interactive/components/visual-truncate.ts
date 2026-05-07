@@ -3,7 +3,7 @@
  * Used by both tool-execution.ts and bash-execution.ts for consistent behavior.
  */
 
-import { Text } from "@mariozechner/swarmz-tui";
+import { Text } from "@mariozechner/pi-tui";
 
 export interface VisualTruncateResult {
 	/** The visual lines to display */

@@ -14,7 +14,7 @@
  *
  * Note: Regular !command syntax (whole-line bash) is preserved and works as before.
  */
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	const PATTERN = /!\{([^}]+)\}/g;

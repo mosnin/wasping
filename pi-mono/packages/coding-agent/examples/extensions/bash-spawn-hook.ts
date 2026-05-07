@@ -7,8 +7,8 @@
  *   swarmz -e ./bash-spawn-hook.ts
  */
 
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
-import { createBashTool } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
+import { createBashTool } from "@mariozechner/pi-coding-agent";
 
 export default function (swarmz: ExtensionAPI) {
 	const cwd = process.cwd();

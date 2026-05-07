@@ -5,7 +5,7 @@
  * Demonstrates how extensions can use ctx.shutdown() to exit swarmz cleanly.
  */
 
-import type { ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import type { ExtensionAPI } from "@mariozechner/pi-coding-agent";
 import { Type } from "typebox";
 
 export default function (swarmz: ExtensionAPI) {

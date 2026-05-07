@@ -2,8 +2,8 @@
  * Shared utilities for compaction and branch summarization.
  */
 
-import type { AgentMessage } from "@mariozechner/swarmz-agent-core";
-import type { Message } from "@mariozechner/swarmz-ai";
+import type { AgentMessage } from "@mariozechner/pi-agent-core";
+import type { Message } from "@mariozechner/pi-ai";
 
 // ============================================================================
 // File Operation Tracking

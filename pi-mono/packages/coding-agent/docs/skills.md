@@ -229,4 +229,4 @@ cd /path/to/brave-search && npm install
 ## Skill Repositories
 
 - [Anthropic Skills](https://github.com/anthropics/skills) - Document processing (docx, pdf, pptx, xlsx), web development
-- [Swarmz Skills](https://github.com/badlogic/swarmz-skills) - Web search, browser automation, Google APIs, transcription
+- [Swarmz Skills](https://github.com/badlogic/pi-mono-skills) - Web search, browser automation, Google APIs, transcription

@@ -9,8 +9,8 @@
 </p>
 <p align="center">
   <a href="https://discord.com/invite/3cU7Bz4UPx"><img alt="Discord" src="https://img.shields.io/badge/discord-community-5865F2?style=flat-square&logo=discord&logoColor=white" /></a>
-  <a href="https://www.npmjs.com/package/@mariozechner/swarmz-coding-agent"><img alt="npm" src="https://img.shields.io/npm/v/@mariozechner/swarmz-coding-agent?style=flat-square" /></a>
-  <a href="https://github.com/badlogic/swarmz/actions/workflows/ci.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/badlogic/swarmz/ci.yml?style=flat-square&branch=main" /></a>
+  <a href="https://www.npmjs.com/package/@mariozechner/pi-coding-agent"><img alt="npm" src="https://img.shields.io/npm/v/@mariozechner/pi-coding-agent?style=flat-square" /></a>
+  <a href="https://github.com/badlogic/pi-mono/actions/workflows/ci.yml"><img alt="Build status" src="https://img.shields.io/github/actions/workflow/status/badlogic/swarmz/ci.yml?style=flat-square&branch=main" /></a>
 </p>
 <p align="center">
   <a href="https://swarmz.dev">swarmz.dev</a> domain graciously donated by
@@ -36,7 +36,7 @@ Public OSS session data helps improve models, prompts, tools, and evaluations us
 
 For the full explanation, see [this post on X](https://x.com/badlogicgames/status/2037811643774652911).
 
-To publish sessions, use [`badlogic/swarmz-share-hf`](https://github.com/badlogic/swarmz-share-hf). Read its README.md for setup instructions. All you need is a Hugging Face account, the Hugging Face CLI, and `swarmz-share-hf`.
+To publish sessions, use [`badlogic/swarmz-share-hf`](https://github.com/badlogic/pi-mono-share-hf). Read its README.md for setup instructions. All you need is a Hugging Face account, the Hugging Face CLI, and `swarmz-share-hf`.
 
 You can also watch [this video](https://x.com/badlogicgames/status/2041151967695634619), where I show how I publish my `swarmz` sessions.
 
@@ -73,7 +73,7 @@ I regularly publish my own `swarmz` work sessions here:
 ## Quick Start
 
 ```bash
-npm install -g @mariozechner/swarmz-coding-agent
+npm install -g @mariozechner/pi-coding-agent
 ```
 
 Authenticate with an API key:
@@ -432,7 +432,7 @@ See [docs/packages.md](docs/packages.md).
 ### SDK
 
 ```typescript
-import { AuthStorage, createAgentSession, ModelRegistry, SessionManager } from "@mariozechner/swarmz-coding-agent";
+import { AuthStorage, createAgentSession, ModelRegistry, SessionManager } from "@mariozechner/pi-coding-agent";
 
 const authStorage = AuthStorage.create();
 const modelRegistry = ModelRegistry.create(authStorage);
@@ -646,6 +646,6 @@ MIT
 
 ## See Also
 
-- [@mariozechner/swarmz-ai](https://www.npmjs.com/package/@mariozechner/swarmz-ai): Core LLM toolkit
-- [@mariozechner/swarmz-agent-core](https://www.npmjs.com/package/@mariozechner/swarmz-agent-core): Agent framework
-- [@mariozechner/swarmz-tui](https://www.npmjs.com/package/@mariozechner/swarmz-tui): Terminal UI components
+- [@mariozechner/pi-ai](https://www.npmjs.com/package/@mariozechner/pi-ai): Core LLM toolkit
+- [@mariozechner/pi-agent-core](https://www.npmjs.com/package/@mariozechner/pi-agent-core): Agent framework
+- [@mariozechner/pi-tui](https://www.npmjs.com/package/@mariozechner/pi-tui): Terminal UI components

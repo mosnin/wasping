@@ -12,7 +12,7 @@ import {
 	getAgentDir,
 	SessionManager,
 	type Skill,
-} from "@mariozechner/swarmz-coding-agent";
+} from "@mariozechner/pi-coding-agent";
 
 // Or define custom skills inline
 const customSkill: Skill = {

@@ -4,7 +4,7 @@
  * Usage: swarmz --extension ./examples/extensions/rainbow-editor.ts
  */
 
-import { CustomEditor, type ExtensionAPI } from "@mariozechner/swarmz-coding-agent";
+import { CustomEditor, type ExtensionAPI } from "@mariozechner/pi-coding-agent";
 
 // Base colors (coral → yellow → green → teal → blue → purple → pink)
 const COLORS: [number, number, number][] = [

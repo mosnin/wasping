@@ -8,11 +8,11 @@ import { createRequire } from "node:module";
 import * as os from "node:os";
 import * as path from "node:path";
 import { fileURLToPath } from "node:url";
-import * as _bundledPiAgentCore from "@mariozechner/swarmz-agent-core";
-import * as _bundledPiAi from "@mariozechner/swarmz-ai";
-import * as _bundledPiAiOauth from "@mariozechner/swarmz-ai/oauth";
-import type { KeyId } from "@mariozechner/swarmz-tui";
-import * as _bundledPiTui from "@mariozechner/swarmz-tui";
+import * as _bundledPiAgentCore from "@mariozechner/pi-agent-core";
+import * as _bundledPiAi from "@mariozechner/pi-ai";
+import * as _bundledPiAiOauth from "@mariozechner/pi-ai/oauth";
+import type { KeyId } from "@mariozechner/pi-tui";
+import * as _bundledPiTui from "@mariozechner/pi-tui";
 import { createJiti } from "jiti/static";
 // Static imports of packages that extensions may use.
 // These MUST be static so Bun bundles them into the compiled binary.
@@ -22,7 +22,7 @@ import * as _bundledTypeboxCompile from "typebox/compile";
 import * as _bundledTypeboxValue from "typebox/value";
 import { CONFIG_DIR_NAME, getAgentDir, isBunBinary } from "../../config.js";
 // NOTE: This import works because loader.ts exports are NOT re-exported from index.ts,
-// avoiding a circular dependency. Extensions can import from @mariozechner/swarmz-coding-agent.
+// avoiding a circular dependency. Extensions can import from @mariozechner/pi-coding-agent.
 import * as _bundledPiCodingAgent from "../../index.js";
 import { createEventBus, type EventBus } from "../event-bus.js";
 import type { ExecOptions } from "../exec.js";
@@ -48,11 +48,11 @@ const VIRTUAL_MODULES: Record<string, unknown> = {
 	"@sinclair/typebox": _bundledTypebox,
 	"@sinclair/typebox/compile": _bundledTypeboxCompile,
 	"@sinclair/typebox/value": _bundledTypeboxValue,
-	"@mariozechner/swarmz-agent-core": _bundledPiAgentCore,
-	"@mariozechner/swarmz-tui": _bundledPiTui,
-	"@mariozechner/swarmz-ai": _bundledPiAi,
-	"@mariozechner/swarmz-ai/oauth": _bundledPiAiOauth,
-	"@mariozechner/swarmz-coding-agent": _bundledPiCodingAgent,
+	"@mariozechner/pi-agent-core": _bundledPiAgentCore,
+	"@mariozechner/pi-tui": _bundledPiTui,
+	"@mariozechner/pi-ai": _bundledPiAi,
+	"@mariozechner/pi-ai/oauth": _bundledPiAiOauth,
+	"@mariozechner/pi-coding-agent": _bundledPiCodingAgent,
 };
 
 const require = createRequire(import.meta.url);
@@ -83,11 +83,11 @@ function getAliases(): Record<string, string> {
 	};
 
 	_aliases = {
-		"@mariozechner/swarmz-coding-agent": packageIndex,
-		"@mariozechner/swarmz-agent-core": resolveWorkspaceOrImport("agent/dist/index.js", "@mariozechner/swarmz-agent-core"),
-		"@mariozechner/swarmz-tui": resolveWorkspaceOrImport("tui/dist/index.js", "@mariozechner/swarmz-tui"),
-		"@mariozechner/swarmz-ai": resolveWorkspaceOrImport("ai/dist/index.js", "@mariozechner/swarmz-ai"),
-		"@mariozechner/swarmz-ai/oauth": resolveWorkspaceOrImport("ai/dist/oauth.js", "@mariozechner/swarmz-ai/oauth"),
+		"@mariozechner/pi-coding-agent": packageIndex,
+		"@mariozechner/pi-agent-core": resolveWorkspaceOrImport("agent/dist/index.js", "@mariozechner/pi-agent-core"),
+		"@mariozechner/pi-tui": resolveWorkspaceOrImport("tui/dist/index.js", "@mariozechner/pi-tui"),
+		"@mariozechner/pi-ai": resolveWorkspaceOrImport("ai/dist/index.js", "@mariozechner/pi-ai"),
+		"@mariozechner/pi-ai/oauth": resolveWorkspaceOrImport("ai/dist/oauth.js", "@mariozechner/pi-ai/oauth"),
 		typebox: typeboxEntry,
 		"typebox/compile": typeboxCompileEntry,
 		"typebox/value": typeboxValueEntry,
